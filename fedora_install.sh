@@ -1,7 +1,8 @@
 # Noah Hefner's Terminal
 
 # Kitty Terminal
-if ! type "$kitty" > /dev/null; then
+if ! command -v kitty &> /dev/null
+then
   echo "Installing Kitty"
   sudo dnf install kitty
 fi
@@ -9,7 +10,8 @@ fi
 echo "Kitty is installed!"
 
 # Neovim
-if ! type "$nvim" > /dev/null; then
+if ! command -v nvim &> /dev/null
+then
   echo "Installing Neovim"
   sudo dnf install neovim
 fi
@@ -51,7 +53,12 @@ then
   cp ~/.config/nvim/init.vim ./old_init.vim
 fi
 
-# TODO: Check if ~/.config/nvim directory exists
+# Make ~/.config/nvim if said directory does not exist
+if [ ! -d "~/.config/nvim" ]
+then
+  echo "~/.config/nvim directory does not exist. Creating it now."
+  mkdir ~/.config/nvim
+fi
 
 echo "Copying init.vim to ~/.config/nvim"
 cp ./init.vim ~/.config/nvim/init.vim
