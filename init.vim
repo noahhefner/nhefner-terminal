@@ -5,20 +5,12 @@
 
 call plug#begin(stdpath('data') . '/plugged')
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 Plug 'preservim/nerdtree'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'dracula/vim'
+Plug 'dracula/vim',{'as':'dracula'}
 
 call plug#end()
 
@@ -47,8 +39,9 @@ let g:airline_theme='base16_dracula'
 
 " Mappings
 
+" Map NERDTree Toggle to F1 key
 nmap <F1> :NERDTreeToggle<CR>
 
-" Plugin Settings
-
-let g:deoplete#enable_at_startup = 1
+" Start NERDTree when Neovim starts. If a file is specified, move the cursor to its window.                                 
+autocmd StdinReadPre * let s"std_in=1                                                                                       
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
