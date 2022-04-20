@@ -8,4 +8,11 @@
 - Neovim Plugins via [vim-plug](https://github.com/junegunn/vim-plug)
   - [vim-airline](https://github.com/vim-airline/vim-airline)
   - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-  - [dracula theme for vim](https://github.com/dracula/vim) 
+  - [dracula theme for vim](https://github.com/dracula/vim)
+- `.bashrc` file is overwritten
+
+## Usage
+
+Run the installer for your distribution.
+
+ex. `./fedora_install.sh`
