@@ -1,5 +1,12 @@
 # Noah Hefner's Terminal
 
+# bashrc
+echo "Copying .bashrc to home directory"
+cp .bashrc ~/.bashrc
+echo ".bashrc copied. Reloading .bashrc"
+source ~/.bashrc
+echo ".bashrc setup complete!"
+
 # Kitty Terminal
 if ! command -v kitty &> /dev/null
 then
@@ -26,9 +33,15 @@ then
   cp ~/.config/kitty/kitty.conf ./old_kitty.conf
 fi
 
+# Check for ~/.config/kitty directory
+if [ ! -d ~/.config/kitty ]
+then
+  echo "~/.config/kitty directory does not exist. Creating it now."
+  mkdir ~/.config/kitty
+fi
+
 echo "Copying kitty.conf to ~/.config/kitty"
 cp ./kitty.conf ~/.config/kitty/kitty.conf
-
 
 # Kitty theme
 if [ -e ~/.config/kitty/theme.conf ]
