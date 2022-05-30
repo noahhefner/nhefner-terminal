@@ -7,15 +7,6 @@ echo ".bashrc copied. Reloading .bashrc"
 source ~/.bashrc
 echo ".bashrc setup complete!"
 
-# Kitty Terminal
-if ! command -v kitty &> /dev/null
-then
-  echo "Installing Kitty"
-  sudo dnf install kitty
-fi
-
-echo "Kitty is installed!"
-
 # Neovim
 if ! command -v nvim &> /dev/null
 then
@@ -24,34 +15,6 @@ then
 fi
 
 echo "Neovim is installed!"
-
-echo "Configuring Kitty"
-# If kitty config file exists, copy it to the current directory
-if [ -e ~/.config/kitty/kitty.conf ]
-then
-  echo "kitty.conf file found. Making a copy in this directory."
-  cp ~/.config/kitty/kitty.conf ./old_kitty.conf
-fi
-
-# Check for ~/.config/kitty directory
-if [ ! -d ~/.config/kitty ]
-then
-  echo "~/.config/kitty directory does not exist. Creating it now."
-  mkdir ~/.config/kitty
-fi
-
-echo "Copying kitty.conf to ~/.config/kitty"
-cp ./kitty.conf ~/.config/kitty/kitty.conf
-
-# Kitty theme
-if [ -e ~/.config/kitty/theme.conf ]
-then
-  echo "Kitty theme file found. Making a copy in this directory."
-  cp ~/.config/kitty/theme.conf ./old_theme.conf
-fi
-
-echo "Copying theme.conf to ~/.config/kitty"
-cp ./theme.conf ~/.config/kitty/theme.conf
 
 echo "Configuring Neovim"
 # vim-plug
