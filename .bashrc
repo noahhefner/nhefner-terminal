@@ -6,6 +6,7 @@ PS1='\[\e[0;92m\]\u \[\e[0;96m\]\W \[\e[0m\]➤ \[\e[0m\] '
 # Aliases
 alias hg='history | grep'
 alias ll='ls -al'
+alias h='history'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
